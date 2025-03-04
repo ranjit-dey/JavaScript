@@ -78,6 +78,7 @@ section {
     margin-top: 20px;
     background: var(--BUTTON-COLOR);
     color: var(--BUTTON-TEXT-COLOR);
+    cursor: pointer;
 }
 
 section h2 {

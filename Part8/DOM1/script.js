@@ -32,7 +32,7 @@ btn.addEventListener('click', function (){
     // another way
     // for this you have to define a class in css file => ex. highlight
     let firstCity = document.getElementById('citiesList').firstElementChild;
-    firstCity.classList.add('highlight')
+    firstCity.classList.toggle('highlight')
 })
 
 // Example 3

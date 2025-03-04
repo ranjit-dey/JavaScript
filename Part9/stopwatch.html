@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stopwatch{
+            /* padding: 40px 80px; */
+            width: 600px;
+            height: 230px;
+            background: #000;
+            border-radius: 30px;
+            color: rgb(243, 181, 48);
+            font-size: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        span{
+            font-size: 100px;
+            color: white;
+            height: 100%;
+            width: 150px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button{
+            font-size: 30px;
+            padding: 10px 50px;
+            border: none;
+            background: rgb(16, 16, 96);
+            border-radius: 10px;
+            margin-top: 10px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="stopwatch">
+        <span id="hour">00</span>:
+        <span id="minute">00</span>:
+        <span id="second">00</span>
+    </div>
+    <button>Stop</button>
+
+    <script>
+        const button = document.querySelector('button');
+        const hour = document.querySelector('#hour');
+        const minute = document.querySelector('#minute');
+        const second = document.querySelector('#second');
+
+        let h = 0;
+        let m = 0;
+        let s = 0;
+
+        let returnVal = setInterval(() => {
+            s++;
+            if(m==60){
+                m = 0;
+                h = h+1;
+                if(h < 10) hour.innerHTML = `0${h}`
+                else hour.innerHTML = h;
+            }
+            if(s==60){
+                s = 0;
+                m = m+1;
+                if(m < 10) minute.innerHTML = `0${m}`
+                else minute.innerHTML = m;
+            } 
+
+            if(s < 10) second.innerHTML = `0${s}`
+            else second.innerHTML = s;
+            
+        }, 1000);
+
+        button.addEventListener('click', () => {
+            if(returnVal === 1){
+                clearInterval(1);
+            }
+        })
+
+    </script>
+</body>
+</html>

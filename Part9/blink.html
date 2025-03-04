@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            font-size: 70px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        span{
+            color: white;
+            background: #000;
+            height: 150px;
+            width: 450px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+
+
+    <script>
+        const span = document.querySelector('span');
+        console.log(span)
+        let text = 'Loading'
+        let val = 0;
+        setInterval(()=>{
+            if(val === 0) {
+                span.innerHTML = text;
+                val++;
+            }
+            else if(val===1){
+                span.innerHTML = `${text}.`;
+                val++;
+            }
+            else if(val === 2){
+                span.innerHTML = `${text}..`;
+                val++;
+            }
+            else if(val === 3){
+                span.innerHTML = `${text}...`;
+                val = 0;
+            }
+            
+        },500)
+    </script>
+</body>
+</html>

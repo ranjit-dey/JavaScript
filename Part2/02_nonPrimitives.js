@@ -1,6 +1,6 @@
 
 // Object ============================================
-/*
+// /*
 let username = {
     firstName: 'Ranjit',
     lastName: 'Dey',
@@ -42,10 +42,10 @@ console.log(student['nick Name'])
 let today = new Date();
 console.log(today)
 console.log(today.getMonth())
-
+console.log(today.getHours())
 console.log(`Today is ${today.getDate()}/${today.getMonth()}/${today.getFullYear()}`)
 
-*/
+// */
 
 // Array ========================================
 
@@ -71,6 +71,7 @@ console.table(item)
 
 // Exploring =====================================
 
+/*
 console.log(typeof null)
 console.log(Number(null))
 console.log(Number(undefined))
@@ -80,3 +81,4 @@ console.log(2 + '2')
 console.log(2 + 2+ '2')
 console.log(2 + 2+ '2' +2)
 console.log('2' + 2 + 2 + 2)   // converted whole as string
+*/

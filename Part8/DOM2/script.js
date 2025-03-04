@@ -1,6 +1,6 @@
 
 // Basic styling
-/*
+
 
 // Adding a new element to the ul
 const ul = document.querySelector('ul');
@@ -28,7 +28,7 @@ console.log(li.getAttribute('class'))
 console.log(li.classList.contains('highlight'))
 li.remove();
 
-*/
+
 
 
 
@@ -90,7 +90,7 @@ ul.firstElementChild.style.background = 'yellow';
 
 
 // Sibling node traversal
-
+/*
 const ul = document.querySelector('ul');
 console.log(ul)
 
@@ -103,3 +103,4 @@ console.log(ul.nextSibling)
 
 console.log(ul.previousElementSibling) // h1
 console.log(ul.nextElementSibling) // null 
+*/

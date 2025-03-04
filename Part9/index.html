@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+        }
+        .box1{
+            height: 300px;
+            width: 600px;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .box2{
+            height: 200px;
+            width: 400px;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .box3{
+            height: 100px;
+            width: 200px;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        button{
+            padding: 8px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background: lightseagreen;
+            color: white;
+        }
+
+        button:hover{
+            background-color: rgb(30, 155, 149);
+        }
+
+        .cursor{
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            background: black;
+            border-radius: 50%;
+            /* z-index: 10; */
+            display: none;
+        }
+
+        .outer{
+            margin: 20px 0 0 20px;
+            background: cadetblue;
+            height: 240px;
+            width: 450px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, sans-serif;
+            font-size: 20px;
+        }
+
+        .style{
+            margin: 20px 0 0 20px;
+            background: cadetblue;
+            height: 200px;
+            width: 400px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, sans-serif;
+            font-size: 20px;
+            color: white;
+        }
+
+        .changeBG{
+            background: rgb(32, 123, 126);
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="box1">
+        <div class="box2">
+            <div class="box3">
+            <button>Click Me</button>
+        </div>
+        </div>
+    </div>
+
+    <div class="outer">
+
+    </div>
+
+    <div class="timeout">
+
+    </div>
+
+    <div class="cursor"></div>
+    <script src="Event.js"></script>
+</body>
+</html>

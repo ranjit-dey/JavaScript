@@ -1,4 +1,4 @@
-// Number =========================
+// Number ========================
 let balance = 120;
 console.log(typeof(balance));
 console.log(typeof balance);
@@ -11,7 +11,7 @@ console.log(typeof balance) // output -> number
 console.log(typeof anotherBalance) // output -> object
 
 
-// boolean =======================
+// boolean =====================
 let isActive = false;
 let isRalllyActive  = new Boolean(true) // not recommended
 console.log(isActive)
