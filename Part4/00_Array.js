@@ -1,4 +1,15 @@
 /* Array */
+
+/*
+JavaScript arrays are resizable and can contain a mix of different data types. (When those characteristics are undesirable, use typed arrays instead.)
+
+JavaScript arrays are not associative arrays and so, array elements cannot be accessed using arbitrary strings as indexes, but must be accessed using nonnegative integers (or their respective string form) as indexes.
+
+JavaScript arrays are zero-indexed: the first element of an array is at index 0, the second is at index 1, and so on — and the last element is at the value of the array's length property minus 1.
+
+JavaScript array-copy operations create shallow copies. (All standard built-in copy operations with any JavaScript objects create shallow copies, rather than deep copies).
+*/
+
 console.log('\n============= Array Declaration =============\n')
 
 let numbers = [17,2,45,1,65,32]
@@ -23,6 +34,11 @@ let products = [
     'Charger'
 ]
 console.log(products)
+
+const allTypes = [123, "Hi", false, 4589n, undefined, null]
+for (const key in allTypes) {
+    console.log(`${key} -- ${allTypes[key]} -- ${typeof allTypes[key]}`)
+}
 
 /* Array's Built-in method */
 
@@ -49,7 +65,7 @@ console.log(numArr2.reverse()) // for decending
 
 // sorting decending
 let arr = [1, 2, 56, 41, 0, 36, 41, 100]
-let sortedArray = arr.toSorted((acc, curr) => curr-acc);
+let sortedArray = arr.sort((acc, curr) => curr-acc);
 console.log(sortedArray)
 
 
@@ -209,6 +225,41 @@ console.log(concat1.concat(concat2, concat3))
 
 /* Program 17 */
 console.log('\n=============  Array.from() method =============\n')
+
+console.log(Array.isArray("Ranjit Dey"))
 console.log(Array.from('Ranjit Dey'))
 
+
+/* Program 18 */
+console.log('\n=============  Array.of() method =============\n')
+let score1 = 120
+let score2 = 450
+let score3 = 100
+console.log(Array.of(score1, score2, score3));
+
+
+/* Program 19 */
+console.log('\n=============  spread operator method =============\n')
+// another concat method
+const spreadArr1 = [12, 45, 13, 56]
+const spreadArr2 = [5, 3, 2, 8]
+const spreadArr3 = [122, 5, 6]
+
+const concated_arr = [...spreadArr1, ...spreadArr2, ...spreadArr3]
+console.log(concated_arr)
+
+// console.log(..."Ranjit")
+
+
+
+/* Program 20 */
+console.log('\n=============  flat() method =============\n')
+
+// flat() method takes an argument as depth
+// Here is a multidimensional array , you have to convert it to a flat arr 
+const flatArr = [12, 56, [10, 32, 87, 23, [45, 12, 3], 15, 10], 45, 65]
+let flatedArr1 = flatArr.flat(1)
+let flatedArr2 = flatArr.flat(2)
+let flatedArr = flatArr.flat(Infinity)
+console.log(flatedArr)
 

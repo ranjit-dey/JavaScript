@@ -34,6 +34,7 @@ let userName = 'Ranjit Dey'
 let oldGreet = 'Hello,' + ' ' + userName;
 console.log(oldGreet);
 
+// String Interpolation 
 let greetMessage = `Hello, ${userName}`; // Backtics 
 console.log(greetMessage);
 

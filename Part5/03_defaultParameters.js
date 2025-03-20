@@ -10,6 +10,15 @@ greet('Ranjit');
 // alert("hi")
 
 // Rest parameter
+
+// val1 and val2 are necessary
+function returnAll(val1, val2, ...num){
+    return num
+}
+
+// function will return an array of [58, 49, 434, 93] as 23 and 43 are the necessary
+returnAll(23, 43, 58, 49, 434, 93)
+
 function add(...Numbers){
     return Numbers.reduce((acc, curr) => acc+curr);
 }

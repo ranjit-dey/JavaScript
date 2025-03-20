@@ -1,3 +1,17 @@
+/*== DECLARING STRING ==*/
+const fruit = "apple"
+let fruitColor = 'red'
+let fruitDescription = `Fruit is ${fruit} and color is ${fruitColor}`
+console.log(fruitDescription)
+
+let newString = new String("I am a new String created using Object")
+console.log(newString.valueOf())
+console.log(newString.__proto__)
+
+console.log(typeof fruit) // string
+console.log(typeof newString) // object
+
+/*== STRING METHOD ==*/
 let myName = "Ranjit Dey";
 let about = "All is well that ends well ji\n"
 let email = 'ranjitdey05265@gmail.com'
@@ -12,7 +26,6 @@ console.log(myName[5])
 for (const character of myName) {
     console.log(character)
 }
-
 
 
 console.log(myName.at(4)) 
