@@ -14,7 +14,7 @@ console.log('\n============= Array Declaration =============\n')
 
 let numbers = [17,2,45,1,65,32]
 console.log(numbers) // 17, 2, 45, 1, 65, 32
-console.log(typeof numbers) // Objects
+console.log(typeof numbers) // object
 
 const cars = ['Toyota', 'Rolce Roise', 'Bugati']
 
@@ -36,8 +36,8 @@ let products = [
 console.log(products)
 
 const allTypes = [123, "Hi", false, 4589n, undefined, null]
-for (const key in allTypes) {
-    console.log(`${key} -- ${allTypes[key]} -- ${typeof allTypes[key]}`)
+for (let index in allTypes) {
+    console.log(`${index} -- ${allTypes[index]} -- ${typeof allTypes[index]}`)
 }
 
 /* Array's Built-in method */
@@ -58,7 +58,7 @@ numArr.sort()
 console.log(numArr);
 
 // sorting accending
-let numArr2 = [8, 16, 9, 5, 12,  57, 5, 7];
+let numArr2 = [8, 16, 9, 5, 12, 57, 5, 7];
 numArr2.sort((acc, curr) => acc-curr)
 console.log(numArr2)
 console.log(numArr2.reverse()) // for decending
@@ -155,7 +155,7 @@ let ary =[];
 let mappedArr = mapArr.map((element,index, ary ) => {
     console.log(`${element} - ${index} - ${ary}`)
 });
-// console.log("Square numbers : " + mappedArr);
+console.log("Square numbers : " + mappedArr);
 
 
 

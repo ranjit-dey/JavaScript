@@ -100,6 +100,7 @@ console.log(gender)
 // API
 // https://api.github.com/users/ranjit-dey
 
+
 // singleton object
 const singletonObje = new Object()
 

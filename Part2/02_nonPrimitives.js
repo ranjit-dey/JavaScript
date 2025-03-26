@@ -1,6 +1,6 @@
 
 // Object ============================================
-// /*
+/*
 let username = {
     firstName: 'Ranjit',
     lastName: 'Dey',
@@ -23,7 +23,7 @@ const student = {
     Sage: 23,
     Scourse: 'CSE',
     Sheight: '6ft',
-    'nick Name': 'Robi'
+    "nick name": 'Robi'
 }
 
 console.log(student);
@@ -43,13 +43,15 @@ let today = new Date();
 console.log(today)
 console.log(today.getMonth())
 console.log(today.getHours())
-console.log(`Today is ${today.getDate()}/${today.getMonth()}/${today.getFullYear()}`)
+console.log(`Today is ${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`)
 
-// */
+*/
 
 // Array ========================================
-
-/*
+0 - 'a'
+1 - 'b'
+2 - 'c'
+3 - 56
 
 let item = ['a', 'b', 'c', 56, true, {name : "Hari", age: 20}, 96];
 console.log(item)
@@ -57,7 +59,6 @@ console.table(item)
 
 item[8] = 56; // added new item to the item array
 console.log(item[5]);
-
 // for(i=0; i < 8; i++){
 //     console.log(`${i+1} -> ${item[i]}`);
 // }
@@ -67,7 +68,7 @@ item[7] = 26 // added new item to the item array
 console.table(item)                
 
 
-*/
+
 
 // Exploring =====================================
 

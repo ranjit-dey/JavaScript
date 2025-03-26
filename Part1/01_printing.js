@@ -1,6 +1,9 @@
 console.log("Hello World!"); // New line automatically added after this line execution
 console.log("The Jackpot"); // New line automatically added after this line execution
 
+// console.log() always return undefined
+const consoleReturned = console.log('Hi');
+console.log(consoleReturned) 
 
 // /*
 // These below two statement is not used in today's scenario

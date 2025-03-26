@@ -29,3 +29,25 @@ if(arr.length === 0){
 } else {
     console.log("Array is not empty!");
 }
+
+
+console.log('------------------------------------------------')
+
+// Check a object is empty or not
+
+let obj = {}
+
+if(Object.keys(obj).length == 0){
+    console.log("Object is empty");
+} else {
+    console.log("Object is not empty")
+}
+
+// in operator
+let arr5 = [1,2,3,6, 8];
+// if(4 in arr5) console.log("hi")
+console.log(arr5.length)
+console.log(arr5[2])
+delete arr5[2];
+console.log(arr5.length)
+console.log(arr5[2])
