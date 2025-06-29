@@ -13,5 +13,9 @@ const button2 = document.getElementById('btn-2')
 //     document.querySelector('.box-2').style.background = 'blue'
 // }
 button2.addEventListener('mouseover', () => {
-    document.querySelector('.box-2').style.background = 'blue'
+    document.querySelector('.box-2').style.background = 'green'
 })
+button2.addEventListener('mouseleave', () => {
+    document.querySelector('.box-2').style.background = 'transparent'
+})
+  

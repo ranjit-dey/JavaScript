@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Click Circle Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #1e1e2f;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .circle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: #ff5e5e;
+      border-radius: 50%;
+      /* transform: scale(0); */
+      animation: pop 0.4s ease-out forwards;
+      box-shadow: 0 0 20px rgba(255, 94, 94, 0.6);
+    }
+
+    @keyframes pop {
+      0%   {height: 150px;width: 150px;}
+  20%  {height: 160px;width: 160px;}
+  40%  {height: 120px;width: 120px;}
+  60% {height: 170px;width: 170px;}
+  80% {height: 145px;width: 145px;}
+  100% {height: 150px;width: 150px;}
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    let currentCircle = null;
+
+    document.body.addEventListener("click", function (e) {
+      // Remove previous circle
+      if (currentCircle) currentCircle.remove();
+
+      // Create new circle
+      const circle = document.createElement("div");
+      circle.className = "circle";
+
+      // Set position (centered on click)
+      const size = 150;
+      circle.style.left = `${e.clientX - size / 2}px`;
+      circle.style.top = `${e.clientY - size / 2}px`;
+
+      // Add to document
+      document.body.appendChild(circle);
+
+      // Track current circle
+      currentCircle = circle;
+    });
+  </script>
+
+</body>
+</html>

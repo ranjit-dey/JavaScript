@@ -15,7 +15,7 @@ newItem.setAttribute('class', 'highlight')
 // Creating another element to ul and added some attribute to the list item
 const li = document.createElement('li');
 li.innerText = 'hello ji'
-ul.append(li);
+ul.appendChild(li);
 li.setAttribute('class', 'highlight font-style')
 // li.setAttribute('class', 'font-style') // don't use it it will remove all the override the existing classed
 
@@ -26,7 +26,7 @@ li.setAttribute('class', 'highlight font-style')
 // getting class attribute 
 console.log(li.getAttribute('class'))
 console.log(li.classList.contains('highlight'))
-li.remove();
+// li.remove();
 
 
 
