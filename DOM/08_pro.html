@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: SF Pro Display;
+        }
+
+    
+        body {
+            width: 100%;
+            height: 100%;
+
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        
+        }
+
+        .event{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        h1{
+            text-align: center;
+            margin-top: 30px;
+            color: rgb(137, 135, 135);
+            font-size: 3rem;
+        }
+
+        .a, .p{
+            width: 30vw;
+            height: 30vw;
+            background: #0f6178;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            color: rgba(255, 255, 255, 0.596);
+            font-size: 2rem;
+        }
+        .b, .q{
+            width: 80%;
+            height: 80%;
+            background: #01233a;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .c, .r{
+            width: 80%;
+            height: 80%;
+            background: #050b0f;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        button{
+            all: unset;
+            padding: 10px 20px;
+            background: #49aec8bd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: aliceblue;
+            cursor: pointer;
+
+            transition: background .3s ease;
+        }
+
+        button:hover{
+            background: #2f7283bd;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Event Bubbling and Event Capturing</h1>
+
+    <div class="event">
+        <div class="bubbling">
+        <div class="a">a
+            <div class="b">b
+                <div class="c">c
+                    <button id="b-btn">Click me</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="capturing">
+        <div class="p">p
+            <div class="q">q
+                <div class="r">r
+                    <button id="c-btn">Click me</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        let a = document.querySelector('.a');
+        let b = document.querySelector('.b');
+        let c = document.querySelector('.c');
+        let bbtn = document.querySelector('#b-btn');
+
+        a.addEventListener('click', () => {
+            alert('Box a - clicked')
+        })
+        b.addEventListener('click', () => {
+            alert('Box b - clicked')
+        })
+        c.addEventListener('click', () => {
+            alert('Box c - clicked')
+        })
+        bbtn.addEventListener('click', (e) => {
+            // if button clicked it will not propagate to the parent
+            e.stopPropagation()
+            alert('Button - clicked')
+        })
+
+
+        let p = document.querySelector('.p');
+        let q = document.querySelector('.q');
+        let r = document.querySelector('.r');
+        let cbtn = document.querySelector('#c-btn');
+
+        p.addEventListener('click', () => {
+            alert('Box p - clicked')
+        }, true)
+        q.addEventListener('click', () => {
+            alert('Box q - clicked')
+        })
+        r.addEventListener('click', () => {
+            alert('Box r - clicked')
+        }, true)
+        cbtn.addEventListener('click', (e) => {
+            alert('Button - clicked')
+        })
+    </script>
+</body>
+</html>

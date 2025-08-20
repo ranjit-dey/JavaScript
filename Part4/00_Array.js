@@ -121,7 +121,7 @@ The beginning index of the specified portion of the array. If start is undefined
 The end index of the specified portion of the array. This is exclusive of the element at the index 'end'. If end is undefined, then the slice extends to the end of the array.
 */
 let sliceArr = [25, 65, 23, 41, 43];
-const slicedArr = sliceArr.slice(-3);
+const slicedArr = sliceArr.slice(-2);
 console.log(sliceArr)
 console.log(slicedArr)
 
@@ -141,7 +141,7 @@ Removes elements from an array and, if necessary, inserts new elements in their 
 @returns — An array containing the elements that were deleted.
 */
 let spliceArr = [25, 65, 23, 41, 43];
-const splicedArr = spliceArr.splice(1, 0, 4, 45, 47); // here 1 means start from index 1 and delete 0 items and insert 4, 45, 47 from index 1
+const splicedArr = spliceArr.splice(1, 2, 4, 45, 47); // here 1 means start from index 1 and delete 2 items and insert 4, 45, 47 from index 1
 console.log(spliceArr)
 console.log(splicedArr)
 
@@ -151,10 +151,11 @@ console.log(splicedArr)
 /* Program 9 */
 console.log('\n=============  map() method =============\n')
 let mapArr = [12, 45, 36, 78, 13, 11]
-let ary =[];
 let mappedArr = mapArr.map((element,index, ary ) => {
-    console.log(`${element} - ${index} - ${ary}`)
+    console.log(`${element} - ${index} - ${ary}`);
+    return element*element;
 });
+console.log("Square numbers : " + mapArr);
 console.log("Square numbers : " + mappedArr);
 
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session | Cookie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            background: #111;
+        }
+
+        h1 {
+            margin: 30px auto 0 auto;
+            text-align: center;
+            font-size: 2.5rem;
+            color: #999;
+            width: 720px;
+            font-family: SF Mono;
+        }
+
+        #line {
+            height: 2px;
+            background: #888;
+            margin: 5px auto 0 auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><span style="color: rgb(255, 101, 101)">call()</span>_<span
+            style="color: rgb(168, 255, 168)">apply()</span>_<span style="color: rgb(87, 202, 255)">bind()</span></h1>
+    <div id="line"></div>
+
+    <script>
+        let obj = {
+            name: "Ranjit",
+            age: 21
+        };
+
+
+        function defg(){{
+            console.log(this) 
+        }}
+        defg() // window
+
+
+        function pqrs(){{
+            console.log(this) // object
+        }}
+        pqrs.call(obj) // passing the object
+
+
+        function abcd(a, b, c) {
+            console.log(this, a, b, c)
+        }
+
+        // call() , 13 will maps to parameter 'a', 51 maps to 'b', 63 -> 'c'
+        abcd.call(obj, 13, 51, 63);
+
+        // apply() method takes two argument one is object another is array. here 13 will goes to parameter 'a' vice versa. and apply() method directly call the function
+        abcd.apply(obj, [13, 51, 63])
+
+        // bind() return a copy of the called function where this keyword refers to the object , and other values maps to the function parameters
+        let newFunc = abcd.bind(obj, 13, 51, 63)
+        newFunc()
+
+    </script>
+</body>
+
+</html>

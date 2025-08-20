@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add User UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white flex flex-col items-center min-h-screen py-10">
+
+    <!-- Add User Form -->
+    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg w-full max-w-md mb-10">
+        <h2 class="text-2xl font-bold text-center mb-6">Add User</h2>
+
+        <form class="space-y-4">
+            <!-- Name -->
+            <div>
+                <label class="block mb-1 text-sm">Name</label>
+                <input type="text" id="name" placeholder="Enter name"
+                    class="w-full px-3 py-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500" />
+            </div>
+
+            <!-- Role -->
+            <div>
+                <label class="block mb-1 text-sm">Role</label>
+                <input type="text" id="role" placeholder="Enter role"
+                    class="w-full px-3 py-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500" />
+            </div>
+
+            <!-- Bio -->
+            <div>
+                <label class="block mb-1 text-sm">Bio</label>
+                <textarea id="bio" placeholder="Enter bio"
+                    class="w-full px-3 py-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+
+            <!-- Photo URL -->
+            <div>
+                <label class="block mb-1 text-sm">Photo URL</label>
+                <input type="url" id="photo" placeholder="Enter photo URL"
+                    class="w-full px-3 py-2 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500" />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full py-2 bg-gray-800 rounded-md border border-gray-700 hover:bg-gray-700 transition">
+                Submit
+            </button>
+        </form>
+    </div>
+
+    <!-- User Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 px-4" id="cards">
+
+
+    </div>
+
+    <script>
+
+        let form = document.querySelector('form');
+        let cards = document.querySelector('#cards');
+        let username = document.querySelector('#name');
+        let role = document.querySelector('#role');
+        let bio = document.querySelector('#bio');
+        let photoUrl = document.querySelector('#photo');
+    
+
+        const userManager = {
+            users: JSON.parse(localStorage.getItem("users")) ?? [],
+            init: function () {
+                form.addEventListener('submit', this.submitForm.bind(this))
+            },
+            submitForm: function (e) {
+                e.preventDefault();
+                this.addUser();
+            },
+            addUser: function () {
+                this.users.push({
+                    username: username.value,
+                    role: role.value,
+                    bio: bio.value,
+                    photoUrl: photoUrl.value
+                })
+                localStorage.setItem("users", JSON.stringify(this.users));
+                this.renderUi();
+                form.reset();
+            },
+
+            renderUi: function () {
+                cards.innerHTML = ""
+                this.users.forEach((user, index) => {
+                    const card = document.createElement("div");
+                    card.className = "bg-gray-900 rounded-xl p-4 flex flex-col items-center text-center shadow-lg min-w-[250px]";
+
+                    // Create image
+                    const img = document.createElement("img");
+                    img.src = user.photoUrl;
+                    img.className = "w-20 h-20 rounded-full mb-3 object-cover";
+                    card.appendChild(img);
+
+                    // Name
+                    const nameEl = document.createElement("h3");
+                    nameEl.className = "text-lg font-semibold";
+                    nameEl.textContent = user.username;
+                    card.appendChild(nameEl);
+
+                    // Role
+                    const roleEl = document.createElement("p");
+                    roleEl.className = "text-sm text-gray-400";
+                    roleEl.textContent = user.role;
+                    card.appendChild(roleEl);
+
+                    // Bio
+                    const bioEl = document.createElement("p");
+                    bioEl.className = "mt-2 text-sm";
+                    bioEl.textContent = user.bio;
+                    card.appendChild(bioEl);
+
+                    const button = document.createElement("button")
+                    button.className = "w-full bg-green-600 hover:bg-red-600 text-white font-bold mt-3 px-5 py-2 rounded shadow-md transition-all duration-500 ease btn";
+
+
+                    button.textContent = "Remove User"
+                    card.appendChild(button)
+
+                    button.addEventListener('click', () => this.removeUser(index))
+
+                    cards.appendChild(card)
+                })
+            },
+            removeUser: function (index) {
+                this.users.splice(index, 1)
+                localStorage.setItem("users", JSON.stringify(this.users));
+                this.renderUi()
+            },
+        }
+
+        userManager.init();
+        userManager.renderUi()
+
+
+    </script>
+
+</body>
+
+</html>

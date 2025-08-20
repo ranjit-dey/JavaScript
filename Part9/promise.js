@@ -9,14 +9,17 @@
 //         },2000)
 //     }
 // });
-// // console.log(promise)
+// console.log(promise)
 
-// promise.then((e)=>{
+// promise
+// .then((e)=>{
 //     console.log("Program executed without any error")
 //     console.log(e)
-// }).catch((e) => {
+// })
+// .catch((e) => {
 //     console.log(e)
-// }).finally(() => {
+// })
+// .finally(() => {
 //     console.log("Promise closed")
 // })
 

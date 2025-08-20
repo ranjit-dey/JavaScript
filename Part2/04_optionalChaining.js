@@ -87,4 +87,4 @@ console.log(user.walk) // undefined
 // to avoid this error first check that walk is function or not. if walk is a function then execute that otherwise no
 console.log(user.walk?.())
 
-// To avoid comment user and uncomment Main Object user
+// To avoid error, comment user and uncomment Main Object user

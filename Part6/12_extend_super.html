@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /* == CLASSICAL INHERITANCE == */
+        {
+            class User {
+
+                constructor(name, address, username, email) {
+                    this.name = name;
+                    this.address = address;
+                    this.username = username;
+                    this.email = email;
+                    this.role = "user";
+                }
+
+                checkRole() {
+                    return `You are a ${this.role}`
+                }
+
+                write(text) {
+                    let h1 = document.createElement('h1');
+                    h1.textContent = `${this.name} - ${text}`;
+                    document.body.appendChild(h1)
+                }
+            }
+
+            /*== Classical Inheritance ==*/
+            class Admin extends User {
+
+                constructor(name, address, username, email) {
+                    super(name, address, username, email);
+                    this.role = "admin"
+                }
+
+                write(text) {
+                    let h1 = document.createElement('h1');
+                    h1.textContent = `${this.name} - ${text}`;
+                    h1.style.color = 'blue';
+                    document.body.appendChild(h1)
+                }
+
+                remove() {
+                    document.querySelectorAll('h1').forEach(elem => elem.remove());
+                }
+            }
+
+            let user1 = new User('Ranjit', 'Murshidabad', 'ranjit-dey', 'ranjitdey@own.com')
+            let user2 = new User('Suvo', 'Arambagh', 'suvo-m', 'suvo@own.com')
+            let user3 = new User('Pratima', 'Goghat', 'pritam-g', 'pritam@own.com')
+            let user4 = new User('Aritra', 'Goghat', 'aritra-g', 'aritra@own.com')
+            let admin1 = new Admin('Ranjit', 'Kolkata', 'ranjitdey', 'owner@own.com')
+
+            user1.write("Hi, how are you")
+            user3.write("I am fine")
+            user2.write("What are doing ?")
+            user2.write("is there some who can do this?")
+            admin1.write("Close all these stuff")
+            user4.write("I can do this")
+            user3.write("How much money you pay for it?")
+            admin1.write("Again you all are doing same stuff");
+            admin1.write("I am going to erase all the chats");
+
+            // admin1.remove()
+            admin1.checkRole()
+            user1.checkRole()
+        }
+
+        /* == PROTOTYPAL INHERITANCE == */
+        {
+
+            let coffee = {
+                color: 'dark',
+                price: 50,
+                drink: function () {
+                    console.log('gut gut gut')
+                }
+            }
+
+            // hard coded not share memory
+            let specialCoffee = { ...coffee };
+
+            // shared memory
+            // let specialCoffee = Object.create(coffee);
+            specialCoffee.taste = 'better';
+            specialCoffee.price = 120;
+
+            console.log(specialCoffee) // check the prototype section in browser console;
+            specialCoffee.drink();
+        }
+    </script>
+</body>
+
+</html>

@@ -9,37 +9,40 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Poppins;
+            font-family: SF Mono;
         }
         body{
             height: 100vh;
             width: 100vw;
 
+            background: gray;
+
             display: flex;
             flex-direction: column;
+            gap: 20px;
             align-items: center;
             justify-content: center;
         }
 
+        .current-time{
+            height: 100px;
+            width: 670px;
+            background: #000;
+            border-radius: 50px;
+
+            display: flex;
+            align-items: center;
+            color: white;
+            justify-content: center;
+        }
+
         .stopwatch{
-            /* padding: 40px 80px; */
             width: 600px;
             height: 230px;
             background: #000;
             border-radius: 30px;
             color: rgb(243, 181, 48);
             font-size: 80px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        span{
-            font-size: 100px;
-            color: white;
-            height: 100%;
-            width: 150px;
 
             display: flex;
             align-items: center;
@@ -60,6 +63,9 @@
 
 </head>
 <body>
+    <div class="current-time">
+        <h2>Current time : <span id="time"></span></h2>
+    </div>
     <div class="stopwatch">
         <span id="hour">00</span>:
         <span id="minute">00</span>:
@@ -68,10 +74,14 @@
     <button>Stop</button>
 
     <script>
+        const time = document.querySelector('#time');
         const button = document.querySelector('button');
         const hour = document.querySelector('#hour');
         const minute = document.querySelector('#minute');
         const second = document.querySelector('#second');
+
+        let now = new Date();
+        time.innerHTML = now.toLocaleTimeString()
 
         let h = 0;
         let m = 0;

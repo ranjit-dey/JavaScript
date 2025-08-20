@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class CreatePencil{
+
+            constructor (name, price, color, company){
+                this.name = name;
+                this.price = price;
+                this.color = color;
+                this.company = company;
+            }
+
+            write(text){
+                let h1 = document.createElement('h1');
+                h1.textContent = text;
+                h1.style.color = this.color;
+                document.body.appendChild(h1);
+            }
+
+            erase () {
+                let allText = document.querySelectorAll('h1');
+                allText.forEach(text => {
+                    if(text.style.color == this.color) text.remove();
+                })
+            }
+
+        }
+
+        let pencil1 = new CreatePencil('Nataraj', 5, 'green', 'Nataraj');
+        let pencil2 = new CreatePencil('Doms', 10, 'blue', 'Doms');
+
+        pencil1.write("hello world")
+        pencil1.write("OOps")
+        pencil1.write("this keyword")
+        pencil2.write("hello world")
+        pencil1.write("Python Programming")
+        pencil2.write("SQL Injection")
+
+        // Erasing all text which is written in pencil1
+        // pencil1.erase()
+    </script>
+</body>
+</html>

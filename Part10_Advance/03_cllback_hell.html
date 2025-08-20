@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="dark" name="color-scheme">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // this type of function will availabe on library
+        function profileLekaraao(username, callback){
+            setTimeout(() => {
+                console.log(username)
+                callback({username})
+            }, 2000);
+        }
+
+
+        // you will use that function like this. when the data of ranjit fetched then run the function
+        profileLekaraao('ranjit', function(profileData){
+            console.log(profileData)
+        })
+    </script>
+</body>
+</html>

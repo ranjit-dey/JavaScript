@@ -67,3 +67,18 @@ console.log(newProduct) // delevery status not reflecting
 console.log(product)
 */
 
+// fourth way (using builtin method)
+// spread operator not works on nested object that means if you copy a object which is nested and if you change the value of the nested object it will reflect to the original object
+
+let obj = {
+    name : "Ranjit Dey",
+    roll : 165,
+    address : {
+        city : 'colony',
+        pin : 785412
+    }
+}
+
+// first convert this object to a srting and the again parse the json as object
+let obj2 = JSON.parse(JSON.stringify(obj));
+

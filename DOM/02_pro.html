@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Select your device :</h1>
+    <select name="" id="">
+        <option selected disabled>Choose Device</option>
+        <option value="samsung">Samsung</option>
+        <option value="motorola">Motorola</option>
+        <option value="iphone">Iphone</option>
+        <option value="realme">Realme</option>
+        <option value="vivo">Vivo</option>
+        <option value="oppo">Oppo</option>
+        <option value="techno">Techno</option>
+    </select>
+    <script>
+        let heading = document.querySelector('h1');
+        let device = document.querySelector('select');
+
+        device.addEventListener('change', (event) => {
+            heading.textContent = `Device Selected : ${event.target.options[event.target.selectedIndex].text}`
+        })
+    </script>
+</body>
+</html>

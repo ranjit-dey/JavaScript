@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPs</title>
+</head>
+
+<body>
+
+    <script>
+
+        /* == CONSTRUCTOR FUNCTION == */
+        function CreatePencil(name, price, color, company) {
+            this.name = name;
+            this.price = price;
+            this.color = color;
+            this.company = company;
+
+            /* === Use prototype to save memory === */
+            // this.write = function (text) {
+            //     let h1 = document.createElement('h1');
+            //     h1.textContent = text;
+            //     h1.style.color = color;
+            //     document.body.appendChild(h1);
+            // }
+        }
+
+        // used prototype to save memory and from now write() is written in shared memory which can be used by all the objects of CreatePencil();
+        CreatePencil.prototype.write = function (text) {
+                let h1 = document.createElement('h1');
+                h1.textContent = text;
+                h1.style.color = this.color;
+                document.body.appendChild(h1);
+            }
+
+        let pencil1 = new CreatePencil('Nataraj', 5, 'black', 'Nataraj');
+        let pencil2 = new CreatePencil('Doms', 10, 'red', 'Doms');
+
+        pencil1.write("Hey! What are doing in OOPs ?");
+        pencil2.write("I am learning OOPs concept from scratch");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session | Cookie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            background: #111;
+        }
+
+        h1 {
+            margin: 30px auto 0 auto;
+            text-align: center;
+            font-size: 2.5rem;
+            color: #999;
+            width: 720px;
+        }
+
+        #line {
+            height: 2px;
+            background: #888;
+            margin: 5px auto 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Session Storage & Cookie</h1>
+    <div id="line"></div>
+
+</body>
+<script>
+
+    // Styling
+    let h1Width = document.querySelector("h1").offsetWidth;
+    console.log(h1Width)
+    let line = document.querySelector('#line')
+    line.style.width = h1Width + "px";
+
+
+    // main code
+    // -----------------------------
+    // Local Storage
+    // -----------------------------
+    console.log("=== Local Storage Example ===");
+
+    // Set data in localStorage
+    localStorage.setItem("username", "Ranjit");
+
+    // Get data from localStorage
+    console.log("LocalStorage username:", localStorage.getItem("username"));
+
+    // Remove data from localStorage
+    // localStorage.removeItem("username");
+
+    // Clear all localStorage
+    // localStorage.clear();
+
+
+    // -----------------------------
+    // Session Storage
+    // -----------------------------
+    console.log("=== Session Storage Example ===");
+
+    // Set data in sessionStorage
+    sessionStorage.setItem("sessionUser", "Guest");
+
+    // Get data from sessionStorage
+    console.log("SessionStorage user:", sessionStorage.getItem("sessionUser"));
+
+    // Remove data from sessionStorage
+    // sessionStorage.removeItem("sessionUser");
+
+    // Clear all sessionStorage
+    // sessionStorage.clear();
+
+
+    // -----------------------------
+    // Cookies
+    // -----------------------------
+    console.log("=== Cookies Example ===");
+
+    // Set cookie (expires in 7 days)
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    // Get cookie
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Delete cookie
+    function eraseCookie(name) {
+        document.cookie = name + "=; Max-Age=-99999999;";
+    }
+
+    // Example usage:
+    setCookie("theme", "dark", 7);
+    console.log("Cookie theme:", getCookie("theme"));
+    // eraseCookie("theme");
+
+
+</script>
+
+</html>

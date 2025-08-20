@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session | Cookie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            background: #111;
+        }
+
+        h1 {
+            margin: 30px auto 0 auto;
+            text-align: center;
+            font-size: 2.5rem;
+            color: #999;
+            width: 720px;
+        }
+
+        #line {
+            height: 2px;
+            background: #888;
+            margin: 5px auto 0 auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This Keyword</h1>
+    <div id="line"></div>
+
+    <script>
+        // this return window in global
+        console.log("==== CONSOLE 1 ====")
+        console.log(this) // window
+
+        // this return window in functional scope
+        function hello(){
+            console.log("==== CONSOLE 2 ====")
+            console.log(this) // window
+        }
+        hello()
+
+        let a = () => {
+            console.log("==== CONSOLE 3 ====")
+            console.log(this) // window
+        }
+        a()
+
+
+        let obj = {
+            name : "harsh",
+            fatherName : 'gokul',
+            sayName : function(){
+                // here this refers to the current object means object "obj"
+                console.log("==== CONSOLE 4 ====")
+                console.log(this) 
+
+                // this refers to the current obj so -
+                console.log("==== CONSOLE 5 ====")
+                console.log(this.name) // obj.name 
+
+                function abcd (){
+                    console.log("==== CONSOLE 6 ====")
+                    console.log(this) // window
+                }
+                abcd()
+
+                let defg = () => {
+                    console.log("==== CONSOLE 7 ====")
+                    console.log(this) // curent object
+                }
+                defg()
+            },
+
+            sayfatherName : () => {
+                // here we are using arrow function so here this refert to the window object
+                console.log("==== CONSOLE 8 ====")
+                console.log(this)
+            }
+        }
+
+        // call the method
+        obj.sayName()
+        obj.sayfatherName();
+
+        // event handler
+        document.querySelector('h1').addEventListener('click', function()  {
+            // here we are using traditional function
+            // here this refers to the element where the eventlistener added ('h1')
+            console.log(this)
+            this.style.color = 'white'
+            // this.textContent = "This refers to current element"
+        })
+
+        document.querySelector('div').addEventListener('click', () => {
+            // here we are using arrow function
+            // here this refers to the window object
+            console.log(this)
+        })
+
+
+        // class
+        class Student{
+            constructor () {
+                console.log("I am default Constructor");
+                // here this refers to an empty object or instance of the class Student (ranjit.roll = 12)
+                console.log(this)
+                this.roll = 12;
+                console.log(this)
+            }
+        }
+
+        // when the below line will execute then the default constructor will run and will create a empty object and assign the roll to the current object 
+        let ranjit = new Student();
+
+        console.log(ranjit.roll) // 12
+
+    </script>
+</body>
+
+</html>

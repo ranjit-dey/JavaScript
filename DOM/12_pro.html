@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .light {
+            --bg: #ffffff;
+            --text: #000000;
+        }
+
+        .dark {
+            --bg: #000000;
+            --text: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        button {
+            all: unset;
+            padding: 15px 30px;
+            background: linear-gradient(142deg, #147294, #003cff);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 5px 9px rgba(44, 44, 44, 0.51);
+        }
+
+        h1 {
+            color: var(--text);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 align="center">Theme Changer</h1>
+        <button>Toggle Theme</button>
+    </div>
+
+    <script>
+        let button = document.querySelector('button');
+        let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+        if (localStorage.getItem('theme')) {
+            theme = localStorage.getItem('theme');
+        }
+
+        localStorage.setItem("theme", theme);
+        document.body.classList.add(theme);
+
+        button.addEventListener('click', () => {
+            if (document.body.classList.contains("dark")) {
+                document.body.classList.remove('dark');
+                document.body.classList.add('light');
+                localStorage.setItem("theme", "light")
+
+            } else {
+                document.body.classList.remove('light');
+                document.body.classList.add('dark');
+                localStorage.setItem("theme", "dark")
+            }
+        })
+    </script>
+</body>
+
+</html>

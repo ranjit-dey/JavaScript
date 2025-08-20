@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Count</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: SF Pro Display;
+        }
+
+
+        body {
+            width: 100%;
+            height: 100%;
+
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 30px;
+
+            user-select: none;
+
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: rgb(137, 135, 135);
+            font-size: 3rem;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+            position: relative;
+        }
+
+        .textarea-box {
+            all: unset;
+            border: 1px solid rgb(127, 127, 127);
+            color: rgb(219, 219, 219);
+            padding: 5px;
+            width: 350px;
+            height: 100px;
+            border-radius: 10px;
+
+        }
+
+        textarea {
+            all: unset;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            color: rgb(219, 219, 219);
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow-x: hidden;
+        }
+
+
+        h3 {
+            font-size: 14px;
+            position: relative;
+            bottom: 40px;
+            left: 158px;
+            background: #111;
+            color: rgb(123, 123, 123);
+        }
+
+        #count {
+            color: rgb(123, 123, 123);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Live Character Count</h1>
+    <div class="container">
+        <div class="textarea-box">
+            <textarea placeholder="write any thing..."></textarea>
+        </div>
+        <h3><span id="count">0</span>/50</h3>
+    </div>
+
+    <script>
+        let text = document.querySelector('textarea');
+        let box = document.querySelector('.textarea-box');
+        let count = document.querySelector('#count');
+
+        text.addEventListener('input', (e) => {
+            count.textContent = text.textLength;
+            if (text.textLength > 50) {
+                count.style.color = 'red'
+                box.style.borderColor = 'red'
+            }
+            else {
+                count.style.color = '#7b7b7b';
+                box.style.borderColor = '#7b7b7b'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -52,3 +52,12 @@ console.log(sym3)
 console.log(sym4)
 console.log(sym3 == sym4);
 
+// bigint
+let n = Number.MAX_SAFE_INTEGER
+let big_num = 9007199254740991n // 
+
+// if you want to add something or remove from bigint you must have to add n in the suffix of the number.
+
+// let val = big_num - 5; // will throw an error
+let val = big_num - 5n
+console.log(val)
